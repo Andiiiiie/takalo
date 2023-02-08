@@ -48,4 +48,12 @@ class User_model extends CI_Model
         $tableau=$query->result_array();
         return $tableau[0]['somme'];
     }
+
+    public function getAll()
+    {
+        $sql="select * from User";
+        $query=$this->db->query($sql);
+        $tableau=$query->result_array();
+        return $tableau;
+    }
 }

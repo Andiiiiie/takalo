@@ -7,9 +7,16 @@ Class Controladmin extends CI_Controller {
     {
         $this->load->model('categories_model');
         $liste=$this->categories_model->getAll();
+        $this->load->model('propositions_model');
+        $this->load->model('user_model');
         $data=array();
+        $data['echanges']=$this->propositions_model->nombreEchange();
+        $data['nombre']=$this->user_model->nombreUtilisateur();
+        $data['liste']=$this->user_model->getAll();
+
+      
         $data['listeCategories']=$liste;
-        $this->load->view('profil',$data);
+        $this->load->view('profilbob',$data);
     }
 
     public function saveCategorie()
@@ -32,9 +39,14 @@ Class Controladmin extends CI_Controller {
         $data=array();
         $this->load->model('categories_model');
         $liste=$this->categories_model->getAll();
+        $this->load->model('propositions_model');
+        $this->load->model('user_model');
+        $data=array();
+        $data['echanges']=$this->propositions_model->nombreEchange();
+        $data['nombre']=$this->user_model->nombreUtilisateur();
         $data['listeCategories']=$liste;
         $data['modifier']=$id;
-        $this->load->view('profil',$data);
+        $this->load->view('profilbob',$data);
     }
 
     public function modifier()
@@ -44,6 +56,17 @@ Class Controladmin extends CI_Controller {
         $this->load->model('categories_model');
         $this->categories_model->modifier($idCat,$new);
         $this->goToProfil();
+    }
+
+
+    public function goToStatistique()
+    {
+        $this->load->model('propositions_model');
+        $this->load->model('user_model');
+        $data=array();
+        $data['echanges']=$this->propositions_model->nombreEchange();
+        $data['nombre']=$this->user_model->nombreUtilisateur();
+        $this->load->view('statistique',$data);
     }
 
 }

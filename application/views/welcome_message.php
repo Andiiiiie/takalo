@@ -68,14 +68,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1>BIENVENU SUR TAKALO TAKALO !</h1>
 
 	<div id="body">
 		<a href="<?php echo base_url('login/connecter');?>"><button>ADMIN</button></a>
 		<a href="<?php echo base_url('inscription/inscrire');?>"><button>USER</button></a>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	<p class="footer">
+		<h3>ETU ....</h3>
+		<h3>ETU ....</h3>
+		<h3>ETU ....</h3>
+	</p>
 </div>
 
 </body>

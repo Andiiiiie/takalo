@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 Class Loginutilisateur extends CI_Controller {
     public function index(){
         if($this->session->has_userdata('id')){
-            redirect(base_url('loginutilisateur/changeController'));
+            redirect("Controluser/index/");
+            //echo $this->session->userdata('id');
         }else{
             
             redirect(base_url('loginutilisateur/connecter'));
@@ -18,6 +19,7 @@ Class Loginutilisateur extends CI_Controller {
         if($this->user_model->isValid($mail,$mdp)==true)
         {
             $this->session->set_userdata('id',$this->user_model->getID($mail,$mdp));
+            // $_SESSION['id']=$this->user_model->getID($mail,$mdp);
             $this->index();
         }
         else
@@ -36,12 +38,10 @@ Class Loginutilisateur extends CI_Controller {
         $this->load->view('loginutilisateur');
     }
     public function deconnecter(){
-        $this->session->unset_userdata('nom');
+        $this->session->unset_userdata('id');
         redirect(base_url('loginutilisateur/index'));
     }
-    public function changeController(){
-       redirect("Controluser/index/");
-    }
+    
 
     
 }
