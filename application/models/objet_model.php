@@ -55,7 +55,7 @@ class Objet_model extends CI_Model
         $this->db->query($sql);
     }
 
-
+    
     public function recherche($motCle,$categorie,$me)
     {
         if($categorie==0){
